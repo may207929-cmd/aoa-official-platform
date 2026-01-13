@@ -1,54 +1,74 @@
-<section class="section">
-        <h2 class="section-title">專家詳細介紹</h2>
-        <div class="card" style="text-align: left; max-width: 900px; margin: auto;">
-            <div style="display: flex; gap: 30px; flex-wrap: wrap;">
-                <div class="avatar" style="flex-shrink: 0; width: 150px; height: 150px;"></div>
-                <div style="flex: 1;">
-                    <h3>Emily 醫師 | 首席專家</h3>
-                    <p><strong>專業背景：</strong> 擁有超過 15 年臨床經驗，專精於高難度病例與數字化導航手術。</p>
-                    <p><strong>研究方向：</strong> 專注於學術資源整合與臨床技術帶教，致力於推動數字化醫療標準流程。</p>
-                    <p><strong>學術成就：</strong> 多次受邀出席國際口腔醫學論壇，發表多篇專業領域論文。</p>
-                </div>
-            </div>
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AOA Institute | 專業學術平台</title>
+    <style>
+        :root { --primary: #2c3e50; --accent: #3498db; --gold: #d4af37; --bg: #f8fafc; }
+        body { font-family: 'PingFang TC', sans-serif; margin: 0; background: var(--bg); color: #333; }
+        
+        /* 頂部平台簡介 */
+        .hero-banner { background: linear-gradient(135deg, #1a2a6c, #2c3e50); color: white; padding: 60px 20px; text-align: center; }
+        .hero-banner h1 { font-size: 2.5rem; margin: 0; }
+        .hero-banner p { opacity: 0.9; max-width: 600px; margin: 15px auto; }
+
+        /* 功能區塊容器 */
+        .function-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; padding: 40px 10%; max-width: 1200px; margin: auto; }
+        
+        /* 功能按鈕卡片 */
+        .nav-card { background: white; padding: 30px; border-radius: 12px; text-align: center; cursor: pointer; transition: 0.3s; border: 1px solid #e2e8f0; text-decoration: none; color: inherit; display: block; }
+        .nav-card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); border-color: var(--accent); }
+        .icon { font-size: 2.5rem; margin-bottom: 15px; display: block; }
+        .nav-card h3 { margin: 10px 0; color: var(--primary); }
+        .nav-card p { font-size: 0.9rem; color: #666; }
+
+        /* 分區錨點標籤 */
+        .section-anchor { padding: 60px 10%; border-top: 1px solid #eee; }
+        .hidden-section { display: none; } /* 未來可配合 JavaScript 做切換顯示 */
+    </style>
+</head>
+<body>
+
+    <header class="hero-banner">
+        <h1>AOA Institute 官方門戶</h1>
+        <p>整合全球頂尖口腔醫療資源，提供數字化手術帶教、學術論文發布及專業諮詢的一站式平台。</p>
+    </header>
+
+    <nav class="function-grid">
+        <a href="#expert" class="nav-card">
+            <span class="icon">👨‍⚕️</span>
+            <h3>專家個人介紹</h3>
+            <p>了解首席專家 Emily 醫師的學術背景與臨床經驗。</p>
+        </a>
+        <a href="#videos" class="nav-card">
+            <span class="icon">🎥</span>
+            <h3>手術視頻庫</h3>
+            <p>高清晰度臨床實操展示，學習數字化精準醫療技術。</p>
+        </a>
+        <a href="#course" class="nav-card">
+            <span class="icon">📚</span>
+            <h3>教學內容目錄</h3>
+            <p>系統化教學課程，從基礎理論到高級實踐全面覆蓋。</p>
+        </a>
+        <a href="#store" class="nav-card" style="border: 2px solid var(--gold);">
+            <span class="icon">🛒</span>
+            <h3>付費內容中心</h3>
+            <p>購買高級教學講課視頻，獲取專屬學術資料包。</p>
+        </a>
+    </nav>
+
+    <section style="text-align: center; padding: 40px; background: #fff;">
+        <h3>關注我們的動態</h3>
+        <p>即時獲取最新手術案例預告</p>
+        <div style="font-size: 1.5rem; display: flex; justify-content: center; gap: 20px;">
+            <span>YouTube</span> | <span>Instagram</span> | <span>LinkedIn</span>
         </div>
     </section>
 
-    <section class="section" style="background: #fff;">
-        <h2 class="section-title">專家手術視頻庫</h2>
-        <div class="grid">
-            <div class="service-item" style="border-left-color: #e74c3c;">
-                <div style="background: #000; height: 180px; border-radius: 8px; margin-bottom: 15px; display: flex; align-items: center; justify-content: center; color: white;">
-                    <span>视频預覽圖 (待上傳)</span>
-                </div>
-                <h3>✦ 微創種植案例解析</h3>
-                <p>展示數字化導航下的精準植入流程與術後即刻效果分析。</p>
-            </div>
-            <div class="service-item" style="border-left-color: #e74c3c;">
-                <div style="background: #000; height: 180px; border-radius: 8px; margin-bottom: 15px; display: flex; align-items: center; justify-content: center; color: white;">
-                    <span>视频預覽圖 (待上傳)</span>
-                </div>
-                <h3>✦ 複雜阻生齒拔除術</h3>
-                <p>精確切割與阻生方位判斷的實戰操作演示。</p>
-            </div>
-        </div>
-    </section>
+    <footer style="text-align: center; padding: 20px; background: var(--primary); color: white;">
+        © 2026 AOA Institute. 所有內容受版權保護。
+    </footer>
 
-    <section class="section" style="background: #f4f7f6;">
-        <h2 class="section-title">教學內容目錄</h2>
-        <div style="max-width: 800px; margin: auto;">
-            <ul style="list-style: none; padding: 0;">
-                <li style="background: white; margin-bottom: 10px; padding: 20px; border-radius: 8px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
-                    <span><strong>第一章：</strong> 數字化口腔診斷基礎</span>
-                    <span style="color: #3498db; font-size: 0.9rem;">共 5 課時</span>
-                </li>
-                <li style="background: white; margin-bottom: 10px; padding: 20px; border-radius: 8px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
-                    <span><strong>第二章：</strong> 3D 手術導板的設計與應用</span>
-                    <span style="color: #3498db; font-size: 0.9rem;">共 8 課時</span>
-                </li>
-                <li style="background: white; margin-bottom: 10px; padding: 20px; border-radius: 8px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
-                    <span><strong>第三章：</strong> 複雜病例的學術資料整理技巧</span>
-                    <span style="color: #3498db; font-size: 0.9rem;">共 4 課時</span>
-                </li>
-            </ul>
-        </div>
-    </section>
+</body>
+</html>
