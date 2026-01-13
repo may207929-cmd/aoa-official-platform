@@ -5,28 +5,74 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AOA Institute | 官方平台</title>
     <style>
-        :root { --primary-color: #2c3e50; --accent-color: #3498db; --text-light: #ecf0f1; }
-        body { font-family: 'Helvetica Neue', Arial, sans-serif; margin: 0; display: flex; justify-content: center; align-items: center; min-height: 100vh; background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d); color: #333; }
-        .card { background: rgba(255, 255, 255, 0.95); padding: 3rem; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.3); text-align: center; max-width: 500px; width: 90%; backdrop-filter: blur(10px); }
-        h1 { color: var(--primary-color); font-size: 2.5rem; margin-bottom: 0.5rem; letter-spacing: 2px; }
-        .subtitle { color: var(--accent-color); font-size: 1.2rem; font-weight: 500; margin-bottom: 2rem; text-transform: uppercase; }
-        .description { line-height: 1.6; color: #555; margin-bottom: 2.5rem; }
-        .btn { background: var(--primary-color); color: white; padding: 12px 30px; border-radius: 30px; text-decoration: none; font-weight: bold; transition: 0.3s; border: none; cursor: pointer; }
-        .btn:hover { background: var(--accent-color); transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
-        .footer { margin-top: 2rem; font-size: 0.8rem; color: #888; }
+        :root { --primary: #2c3e50; --accent: #3498db; --bg: #f4f7f6; }
+        body { font-family: 'Helvetica Neue', Arial, sans-serif; margin: 0; color: #333; line-height: 1.6; background: var(--bg); }
+        
+        /* 橫幅區 */
+        .hero { background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d); color: white; padding: 100px 20px; text-align: center; }
+        .hero h1 { font-size: 3rem; margin: 0; letter-spacing: 2px; }
+        
+        /* 區塊通用樣式 */
+        .section { padding: 60px 10%; max-width: 1200px; margin: auto; }
+        .section-title { text-align: center; font-size: 2rem; color: var(--primary); margin-bottom: 40px; position: relative; }
+        .section-title::after { content: ''; width: 50px; height: 3px; background: var(--accent); position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); }
+        
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        
+        /* 醫師簡介卡片 */
+        .card { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: center; }
+        .avatar { width: 100px; height: 100px; background: #eee; border-radius: 50%; margin: 0 auto 20px; }
+        
+        /* 服務項目卡片 */
+        .service-item { background: white; padding: 25px; border-left: 5px solid var(--accent); border-radius: 5px; box-shadow: 0 2px 10px rgba(0,0,0,0.03); }
+        .service-item h3 { color: var(--accent); margin-top: 0; }
+        
+        footer { background: var(--primary); color: white; text-align: center; padding: 40px 20px; margin-top: 60px; }
     </style>
 </head>
 <body>
-    <div class="card">
+
+    <header class="hero">
         <h1>AOA Institute</h1>
-        <div class="subtitle">Official Platform</div>
-        <p class="description">
-            歡迎來到 AOA Institute 官方平台。我們致力於提供最專業、尖端的學術研究與資源整合，為您打造卓越的學術環境。
-        </p>
-        <a href="mailto:contact@aoa-institute.com" class="btn">聯絡我們</a>
-        <div class="footer">
-            © 2026 AOA Institute. All rights reserved.
+        <p>專業 · 創新 · 卓越</p>
+    </header>
+
+    <section class="section">
+        <h2 class="section-title">專業團隊</h2>
+        <div class="grid">
+            <div class="card">
+                <div class="avatar"></div>
+                <h3>Emily 醫師</h3>
+                <p style="color: var(--accent); font-weight: bold;">首席臨床專家</p>
+                <p>專精於數字化正畸設計與複雜病例分析，擁有豐富的國際臨床教研經驗，致力於提升學術資源整合品質。</p>
+            </div>
         </div>
-    </div>
+    </section>
+
+    <section class="section" style="background: #fff; max-width: 100%;">
+        <div style="max-width: 1200px; margin: auto;">
+            <h2 class="section-title">服務項目</h2>
+            <div class="grid">
+                <div class="service-item">
+                    <h3>✦ 臨床技術帶教</h3>
+                    <p>提供系統化的臨床技術培訓課程，包含最新的口腔醫療技術與數字化應用流程。</p>
+                </div>
+                <div class="service-item">
+                    <h3>✦ 醫療方案諮詢</h3>
+                    <p>針對複雜個案提供 3D 方案設計與學術分析，協助醫師優化診療策略。</p>
+                </div>
+                <div class="service-item">
+                    <h3>✦ 品牌與資源整合</h3>
+                    <p>協助學術機構進行資源對接、品牌官網建立與國際學術影響力推廣。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 AOA Institute. All rights reserved.</p>
+        <p><a href="mailto:may207929@gmail.com" style="color: white; text-decoration: none;">聯絡我們</a></p>
+    </footer>
+
 </body>
 </html>
