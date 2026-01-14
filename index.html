@@ -1,34 +1,63 @@
-<script>
-    // 1. 基本配置
-    const PROJECT_ID = 'ca00mh7m'; // 您的專案 ID
-    const DATASET = 'production';   // 您的數據集
-    const QUERY = encodeURIComponent('*[_type == "surgicalVideo"]{title, youtubeId, price}');
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <title>AOA Institute | 數字化教學平台</title>
+    <script src="https://cdn.jsdelivr.net/npm/@sanity/client@6.1.0/dist/index.umd.js"></script>
+    <style>
+        body { font-family: sans-serif; line-height: 1.6; color: #333; margin: 0; padding: 0; }
+        header { background: #0a2540; color: white; padding: 40px 20px; text-align: center; }
+        .container { max-width: 1000px; margin: auto; padding: 20px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        .card { border: 1px solid #ddd; padding: 15px; border-radius: 8px; }
+        .price { color: #0070f3; font-weight: bold; font-size: 1.2rem; }
+        .video-btn { background: red; color: white; padding: 5px 10px; text-decoration: none; border-radius: 4px; display: inline-block; margin-top: 10px; }
+    </style>
+</head>
+<body>
 
-    // 2. 自動抓取後台資料並更新網頁
-    async function updateWebsiteContent() {
-        const url = `https://${PROJECT_ID}.api.sanity.io/v2021-10-21/data/query/${DATASET}?query=${QUERY}`;
+<header>
+    <h1>AOA Institute 內容管理系統</h1>
+    <p>以下內容由 Sanity 後台自動抓取更新</p>
+</header>
+
+<div class="container">
+    <h2>🎥 手術視頻庫 & 教學目錄</h2>
+    <div id="content-list" class="grid">正在加載最新內容...</div>
+</div>
+
+<script>
+    // 對接您的專案 ID
+    const client = window._sanityClient.createClient({
+        projectId: 'ca00mh7m',
+        dataset: 'production',
+        useCdn: true,
+        apiVersion: '2023-01-01'
+    });
+
+    // 從後台抓取內容的指令
+    async function fetchContent() {
+        const query = '*[_type == "course"]{title, youtubeId, price, description}';
+        const data = await client.fetch(query);
+        const container = document.getElementById('content-list');
         
-        try {
-            const response = await fetch(url);
-            const result = await response.json();
-            
-            if (result.result && result.result.length > 0) {
-                const videoData = result.result[0];
-                // 找到網頁中的卡片元素並更新內容
-                if(document.querySelector('.video-title')) {
-                    document.querySelector('.video-title').innerText = videoData.title;
-                }
-                if(document.querySelector('.video-link')) {
-                    document.querySelector('.video-link').href = `https://www.youtube.com/watch?v=${videoData.youtubeId}`;
-                }
-                if(document.querySelector('.video-price')) {
-                    document.querySelector('.video-price').innerText = `$${videoData.price}`;
-                }
-            }
-        } catch (error) {
-            console.error('數據對接失敗:', error);
+        if (data.length === 0) {
+            container.innerHTML = '目前還沒有內容，請在 Sanity 後台新增！';
+            return;
         }
+
+        container.innerHTML = data.map(item => `
+            <div class="card">
+                <h3>${item.title}</h3>
+                <p>${item.description}</p>
+                <div class="price">價格: $${item.price}</div>
+                <a class="video-btn" href="https://youtube.com/watch?v=${item.youtubeId}" target="_blank">YouTube 引流預覽</a>
+            </div>
+        `).join('');
     }
 
-    updateWebsiteContent();
+    fetchContent();
 </script>
+
+</body>
+</html>
