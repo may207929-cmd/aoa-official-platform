@@ -1,91 +1,26 @@
-<!DOCTYPE html>
-<html lang="zh-Hant">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AOA Institute | International Clinical Training</title>
-    <style>
-        :root { --main-blue: #0a2540; --action-blue: #0070f3; --text-gray: #425466; }
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; margin: 0; color: var(--text-gray); background: #fff; }
+// 1. 基本配置
+const PROJECT_ID = 'ca00mh7m'; // 您的專案 ID
+const DATASET = 'production';   // 您的數據集
+const QUERY = encodeURIComponent('*[_type == "surgicalVideo"]{title, youtubeId, price}');
+
+// 2. 自動抓取後台資料並更新網頁
+async function updateWebsiteContent() {
+    const url = `https://${PROJECT_ID}.api.sanity.io/v2021-10-21/data/query/${DATASET}?query=${QUERY}`;
+    
+    try {
+        const response = await fetch(url);
+        const result = await response.json();
         
-        /* 國際化頂部導航導航 */
-        nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 8%; border-bottom: 1px solid #f0f4f8; position: sticky; top: 0; background: white; z-index: 100; }
-        .logo { font-weight: bold; font-size: 1.5rem; color: var(--main-blue); }
-        .nav-links a { margin-left: 25px; text-decoration: none; color: var(--text-gray); font-size: 0.95rem; }
+        if (result.result && result.result.length > 0) {
+            const videoData = result.result[0];
+            // 自動更新首頁卡片的標題與 YouTube 連結
+            document.querySelector('.video-title').innerText = videoData.title;
+            document.querySelector('.video-link').href = `https://www.youtube.com/watch?v=${videoData.youtubeId}`;
+            document.querySelector('.video-price').innerText = `$${videoData.price}`;
+        }
+    } catch (error) {
+        console.error('數據對接失敗:', error);
+    }
+}
 
-        /* 英雄區：模仿國際學術機構 */
-        .hero { padding: 80px 8%; background: #f6f9fc; display: flex; align-items: center; justify-content: space-between; gap: 40px; }
-        .hero-text { flex: 1; }
-        .hero-text h1 { font-size: 3rem; color: var(--main-blue); margin-bottom: 20px; }
-        .cta-button { background: var(--action-blue); color: white; padding: 15px 30px; border-radius: 5px; text-decoration: none; font-weight: bold; display: inline-block; margin-top: 20px; }
-
-        /* 功能卡片區：結構化導航 */
-        .container { padding: 60px 8%; }
-        .section-header { text-align: center; margin-bottom: 50px; }
-        .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
-        .feature-card { border: 1px solid #e6ebf1; padding: 40px; border-radius: 8px; transition: all 0.2s ease; }
-        .feature-card:hover { border-color: var(--action-blue); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
-        .feature-card h3 { color: var(--main-blue); margin-top: 0; }
-        
-        /* 價格標記 */
-        .price-tag { color: var(--action-blue); font-weight: bold; font-size: 1.2rem; }
-    </style>
-</head>
-<body>
-
-    <nav>
-        <div class="logo">AOA Institute</div>
-        <div class="nav-links">
-            <a href="#about">關於專家</a>
-            <a href="#videos">手術視頻</a>
-            <a href="#courses">培訓課程</a>
-            <a href="https://youtube.com/@AOA" style="color:red; font-weight:bold;">YouTube 直播</a>
-        </div>
-    </nav>
-
-    <section class="hero">
-        <div class="hero-text">
-            <h1>全球頂尖口腔手術<br>數字化帶教平台</h1>
-            <p>由 Emily 醫師親自指導，整合臨床實踐與學術研究，為全球醫師提供專業手術解析與在線培訓課程。</p>
-            <a href="#courses" class="cta-button">立即瀏覽課程清單</a>
-        </div>
-        <div style="flex:1; background:#ddd; height:300px; border-radius:10px;">
-            <div style="display:flex; align-items:center; justify-content:center; height:100%;">專業形象展示區域</div>
-        </div>
-    </section>
-
-    <div class="container" id="courses">
-        <div class="section-header">
-            <h2>功能分區與課程目錄</h2>
-            <p>點擊下方卡片進入不同功能專區</p>
-        </div>
-        <div class="feature-grid">
-            <div class="feature-card">
-                <h3>👨‍⚕️ 專家個人介紹</h3>
-                <p>探索首席專家的學術背景、國際期刊論文發表與臨床帶教經驗。</p>
-                <a href="#about" style="color:var(--action-blue);">查看詳情 →</a>
-            </div>
-            
-            <div class="feature-card">
-                <h3>🎥 手術視頻庫</h3>
-                <p>包含微創種植、阻生齒拔除等高難度手術的全程高畫質實操演示。</p>
-                <a href="#videos" style="color:var(--action-blue);">進入視頻庫 →</a>
-            </div>
-
-            <div class="feature-card" style="background: #fbfdff;">
-                <h3>💎 精英培訓課程</h3>
-                <p>系統化講課視頻，包含 3D 方案設計與學術資料整理技巧。</p>
-                <p class="price-tag">$499 起 / 課程</p>
-                <a href="#" class="cta-button" style="padding:10px 20px; font-size:0.8rem;">前往付費中心</a>
-            </div>
-        </div>
-    </div>
-
-    <footer style="padding: 50px 8%; background: var(--main-blue); color: white; text-align: center;">
-        <p>© 2026 AOA Institute International Training. All rights reserved.</p>
-        <p style="font-size: 0.8rem; opacity: 0.6;">關注我們：YouTube | Instagram | LinkedIn</p>
-    </footer>
-
-</body>
-</div>
-</html>
+updateWebsiteContent();
