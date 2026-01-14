@@ -1,63 +1,75 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>AOA Institute | 數字化教學平台</title>
-    <script src="https://cdn.jsdelivr.net/npm/@sanity/client@6.1.0/dist/index.umd.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AOA Institute | Oculoplastic Surgery Education</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body { font-family: sans-serif; line-height: 1.6; color: #333; margin: 0; padding: 0; }
-        header { background: #0a2540; color: white; padding: 40px 20px; text-align: center; }
-        .container { max-width: 1000px; margin: auto; padding: 20px; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-        .card { border: 1px solid #ddd; padding: 15px; border-radius: 8px; }
-        .price { color: #0070f3; font-weight: bold; font-size: 1.2rem; }
-        .video-btn { background: red; color: white; padding: 5px 10px; text-decoration: none; border-radius: 4px; display: inline-block; margin-top: 10px; }
+        .academic-blue { background-color: #003366; } /* 國際學術藍 */
+        .gold-accent { color: #C5A059; } /* 金色標記 */
     </style>
 </head>
-<body>
+<body class="bg-gray-50 text-gray-900">
 
-<header>
-    <h1>AOA Institute 內容管理系統</h1>
-    <p>以下內容由 Sanity 後台自動抓取更新</p>
-</header>
-
-<div class="container">
-    <h2>🎥 手術視頻庫 & 教學目錄</h2>
-    <div id="content-list" class="grid">正在加載最新內容...</div>
-</div>
-
-<script>
-    // 對接您的專案 ID
-    const client = window._sanityClient.createClient({
-        projectId: 'ca00mh7m',
-        dataset: 'production',
-        useCdn: true,
-        apiVersion: '2023-01-01'
-    });
-
-    // 從後台抓取內容的指令
-    async function fetchContent() {
-        const query = '*[_type == "course"]{title, youtubeId, price, description}';
-        const data = await client.fetch(query);
-        const container = document.getElementById('content-list');
-        
-        if (data.length === 0) {
-            container.innerHTML = '目前還沒有內容，請在 Sanity 後台新增！';
-            return;
-        }
-
-        container.innerHTML = data.map(item => `
-            <div class="card">
-                <h3>${item.title}</h3>
-                <p>${item.description}</p>
-                <div class="price">價格: $${item.price}</div>
-                <a class="video-btn" href="https://youtube.com/watch?v=${item.youtubeId}" target="_blank">YouTube 引流預覽</a>
+    <nav class="academic-blue p-4 text-white shadow-lg">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold tracking-tight">AOA INSTITUTE</h1>
+            <div class="space-x-6">
+                <a href="#" class="hover:text-gray-300">Videos</a>
+                <a href="#" class="hover:text-gray-300">Papers</a>
+                <a href="#" class="hover:text-gray-300">Live Course</a>
+                <button class="bg-white text-blue-900 px-4 py-1 rounded font-semibold">Sign In</button>
             </div>
-        `).join('');
-    }
+        </div>
+    </nav>
 
-    fetchContent();
-</script>
+    <header class="py-20 bg-white border-b">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-serif mb-4">International Center for Oculoplastic Reconstruction</h2>
+            <p class="text-xl text-gray-600 max-w-2xl mx-auto">Focusing on advanced reparative techniques from leading Chinese oculoplastic specialists.</p>
+        </div>
+    </header>
 
+    <section class="container mx-auto py-12 px-4">
+        <h3 class="text-2xl font-bold mb-8 border-l-4 border-blue-900 pl-4">Premium Surgical Videos</h3>
+        <div id="video-grid" class="grid md:grid-cols-3 gap-8">
+            <div class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200">
+                <div class="bg-gray-300 h-48 flex items-center justify-center">
+                    <span class="text-gray-500 italic text-sm">Clinical Footage Preview</span>
+                </div>
+                <div class="p-6">
+                    <h4 class="font-bold text-lg video-title">Loading Advanced Cases...</h4>
+                    <p class="text-sm text-gray-500 mt-2">Expert: Chinese Reconstruction Team</p>
+                    <div class="mt-4 flex justify-between items-center">
+                        <span class="text-blue-900 font-bold video-price">$499.00</span>
+                        <a href="#" class="video-link bg-blue-900 text-white px-4 py-2 rounded text-sm hover:bg-blue-800">Watch Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const PROJECT_ID = 'ca00mh7m'; // 您的專案 ID
+        const DATASET = 'production';   // 您的數據集
+        
+        async function loadContent() {
+            const query = encodeURIComponent('*[_type == "surgicalVideo"]{title, youtubeId, price}');
+            const url = `https://${PROJECT_ID}.api.sanity.io/v2021-10-21/data/query/${DATASET}?query=${query}`;
+            
+            try {
+                const response = await fetch(url);
+                const result = await response.json();
+                if (result.result && result.result.length > 0) {
+                    const data = result.result[0];
+                    document.querySelector('.video-title').innerText = data.title;
+                    document.querySelector('.video-price').innerText = `$${data.price}`;
+                    document.querySelector('.video-link').href = `https://www.youtube.com/watch?v=${data.youtubeId}`;
+                }
+            } catch (e) { console.log('Data link pending...'); }
+        }
+        loadContent();
+    </script>
 </body>
 </html>
