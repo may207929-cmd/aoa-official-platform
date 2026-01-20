@@ -1,147 +1,192 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AOA Institute | 亞洲眼整形醫師聯盟培訓機構</title>
+    <title>Asian Oculoplastic Academy | AOA Institute Global Portal</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,600;1,600&family=Public+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        :root { --medical-blue: #002B5B; --gold-accent: #C5A059; }
-        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; }
-        .academic-font { font-family: 'Cinzel', serif; }
-        .bg-medical { background-color: var(--medical-blue); }
-        .text-gold { color: var(--gold-accent); }
+        :root { --navy: #0A1F44; --gold: #967E4E; --slate: #F4F7F9; }
+        body { font-family: 'Public Sans', sans-serif; color: #1A1A1A; }
+        .academic-serif { font-family: 'Crimson Pro', serif; }
+        .bg-navy { background-color: var(--navy); }
+        .text-gold { color: var(--gold); }
+        .nav-link { position: relative; padding-bottom: 4px; transition: 0.3s; }
+        .nav-link:hover::after { width: 100%; }
+        .nav-link::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--gold); transition: 0.3s; }
     </style>
 </head>
-<body>
+<body class="bg-white">
 
-    <nav class="bg-medical text-white sticky top-0 z-50 shadow-2xl">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="flex justify-between items-center h-20">
-                <div class="flex items-center space-x-4">
-                    <div class="border-l-4 border-gold-accent pl-4">
-                        <div class="academic-font text-2xl tracking-widest">AOA <span class="text-gold">INSTITUTE</span></div>
-                        <div class="text-[10px] uppercase tracking-tighter text-blue-200">Asian Oculoplastic Academy Training Center</div>
-                    </div>
-                </div>
+    <div class="bg-slate-100 text-[10px] font-bold text-slate-500 py-2 border-b border-slate-200 uppercase tracking-[0.2em]">
+        <div class="max-w-7xl mx-auto px-6 flex justify-between">
+            <div class="flex space-x-6">
+                <span>Academic Portal (學術門戶)</span>
+                <span class="text-slate-300">|</span>
+                <a href="#" class="hover:text-navy">Certification (認證 10)</a>
+            </div>
+            <div class="flex items-center space-x-6">
+                <select class="bg-transparent outline-none cursor-pointer hover:text-navy">
+                    <option>ENGLISH (Primary)</option>
+                    <option>中文 (繁體)</option>
+                    <option>日本語</option>
+                </select>
+                <a href="#" class="hover:text-navy">Contact Support (14)</a>
+            </div>
+        </div>
+    </div>
 
-                <div class="hidden xl:flex space-x-8 text-[13px] font-semibold tracking-wide">
-                    <a href="#" class="hover:text-gold transition">HOME</a>
-                    <div class="group relative cursor-pointer">
-                        <span class="hover:text-gold transition">ACADEMIC ▾</span>
-                        <div class="absolute hidden group-hover:block bg-white text-slate-800 w-56 shadow-2xl mt-2 rounded-sm border-t-4 border-gold-accent">
-                            <a href="#" class="block px-6 py-3 hover:bg-slate-50 border-b">About Us (欄目2)</a>
-                            <a href="#" class="block px-6 py-3 hover:bg-slate-50 border-b">Committee (欄目3)</a>
-                            <a href="#" class="block px-6 py-3 hover:bg-slate-50">Faculty (欄目4)</a>
-                        </div>
-                    </div>
-                    <div class="group relative cursor-pointer">
-                        <span class="hover:text-gold transition">EDUCATION ▾</span>
-                        <div class="absolute hidden group-hover:block bg-white text-slate-800 w-56 shadow-2xl mt-2 rounded-sm border-t-4 border-gold-accent">
-                            <a href="#" class="block px-6 py-3 hover:bg-slate-50 border-b">Programs (欄目5)</a>
-                            <a href="#" class="block px-6 py-3 hover:bg-slate-50 border-b">Live Education (欄目6)</a>
-                            <a href="#" class="block px-6 py-3 hover:bg-slate-50">Certification (欄目10)</a>
-                        </div>
-                    </div>
-                    <a href="#" class="hover:text-gold transition">RESEARCH (欄目7)</a>
-                    <a href="#" class="hover:text-gold transition">MEMBERSHIP (欄目9)</a>
-                </div>
-
-                <div class="flex items-center space-x-6">
-                    <select class="bg-transparent border border-blue-400 text-xs rounded px-2 py-1 outline-none cursor-pointer">
-                        <option class="text-black">English</option>
-                        <option class="text-black">中文 (繁體)</option>
-                    </select>
-                    <button class="bg-gold-accent text-white px-6 py-2 rounded-sm text-xs font-bold hover:brightness-110 shadow-lg">MEMBER LOGIN</button>
+    <nav class="bg-white sticky top-0 z-50 shadow-sm border-b border-slate-100">
+        <div class="max-w-7xl mx-auto px-6 h-24 flex justify-between items-center">
+            <div class="flex items-center border-l-[3px] border-navy pl-4">
+                <h1 class="academic-serif text-3xl font-semibold tracking-tight text-navy">AOA <span class="text-gold italic font-normal">INSTITUTE</span></h1>
+                <div class="ml-4 hidden sm:block">
+                    <p class="text-[9px] uppercase tracking-[0.4em] text-slate-400 font-bold leading-none">Asian Oculoplastic Academy</p>
+                    <p class="text-[9px] uppercase tracking-[0.4em] text-gold font-bold mt-1">Academic Excellence</p>
                 </div>
             </div>
+
+            <div class="hidden xl:flex space-x-8 text-[12px] font-bold tracking-widest text-navy uppercase">
+                <a href="#" class="nav-link">Home</a>
+                <div class="group relative py-8">
+                    <span class="nav-link cursor-pointer">The Academy ▾</span>
+                    <div class="absolute hidden group-hover:block bg-white shadow-2xl w-64 top-[100%] border-t-2 border-gold py-2">
+                        <a href="#" class="block px-8 py-4 hover:bg-slate-50 text-[10px] border-b border-slate-50">About Us (2)</a>
+                        <a href="#" class="block px-8 py-4 hover:bg-slate-50 text-[10px] border-b border-slate-50">Academic Committee (3)</a>
+                        <a href="#" class="block px-8 py-4 hover:bg-slate-50 text-[10px]">Faculty Profiles (4)</a>
+                    </div>
+                </div>
+                <div class="group relative py-8">
+                    <span class="nav-link cursor-pointer">Education ▾</span>
+                    <div class="absolute hidden group-hover:block bg-white shadow-2xl w-64 top-[100%] border-t-2 border-gold py-2">
+                        <a href="#" class="block px-8 py-4 hover:bg-slate-50 text-[10px] border-b border-slate-50">Training Programs (5)</a>
+                        <a href="#" class="block px-8 py-4 hover:bg-slate-50 text-[10px] border-b border-slate-50">Live Education (6)</a>
+                        <a href="#" class="block px-8 py-4 hover:bg-slate-50 text-[10px]">CME Certification (10)</a>
+                    </div>
+                </div>
+                <a href="#" class="nav-link">Research (7)</a>
+                <a href="#" class="nav-link">Membership (9)</a>
+            </div>
+
+            <a href="#" class="bg-navy text-white px-8 py-4 text-[11px] font-bold tracking-widest hover:bg-slate-800 transition shadow-lg">MEMBER CENTER (12)</a>
         </div>
     </nav>
 
-    <header class="relative h-[650px] flex items-center bg-medical">
-        <div class="absolute inset-0 opacity-30 bg-[url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=1920')] bg-cover bg-center"></div>
-        <div class="relative max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center text-white">
+    <header class="relative bg-navy py-32 lg:py-48 overflow-hidden text-white">
+        <div class="absolute inset-0 opacity-20 bg-[url('https://images.unsplash.com/photo-1576086213369-97a306dca665?auto=format&fit=crop&w=1920')] bg-cover bg-fixed"></div>
+        <div class="max-w-7xl mx-auto px-6 relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
-                <h2 class="academic-font text-5xl lg:text-7xl leading-tight mb-6">Advancing <br><span class="text-gold italic">Oculoplastic</span> Excellence</h2>
-                <p class="text-lg text-blue-100 font-light mb-10 leading-relaxed border-l-2 border-gold-accent pl-6">
-                    亞洲眼整形醫師聯盟培訓機構：致力於修復技術的標準化與國際學術傳承。<br>
-                    <span class="text-sm opacity-70 italic">Asian Oculoplastic Academy: Standardizing Repair Techniques & Academic Heritage.</span>
+                <span class="text-gold uppercase tracking-[0.5em] text-[10px] font-bold mb-6 block">Establishing Global Surgical Standards</span>
+                <h2 class="academic-serif text-5xl lg:text-7xl mb-8 leading-[1.1]">The Art of <br><span class="italic text-gold">Oculoplastic Revision.</span></h2>
+                <p class="text-slate-300 text-lg font-light leading-relaxed max-w-xl mb-12 border-l border-gold/40 pl-8">
+                    Dedicated to the standardization of repair techniques, advanced anatomy, and clinical excellence in Asian oculoplastic surgery.
                 </p>
-                <div class="flex space-x-6">
-                    <button class="bg-gold-accent px-10 py-4 font-bold text-sm tracking-widest hover:translate-y-[-2px] transition duration-300 shadow-2xl">CORE PROGRAMS</button>
-                    <button class="border border-white/50 px-10 py-4 font-bold text-sm tracking-widest hover:bg-white/10 transition">LATEST RESEARCH</button>
+                <div class="flex flex-wrap gap-4">
+                    <button class="bg-gold px-10 py-5 font-bold text-[11px] tracking-[0.2em] shadow-2xl hover:brightness-110 transition">EXPLORE CURRICULUM</button>
+                    <button class="border border-white/20 px-10 py-5 font-bold text-[11px] tracking-[0.2em] hover:bg-white/10 transition uppercase">About the Academy</button>
                 </div>
             </div>
-            <div class="hidden lg:block bg-white/5 backdrop-blur-md p-8 rounded-lg border border-white/10 shadow-2xl">
-                <div class="text-gold font-bold mb-4 uppercase tracking-widest text-sm">Featured Surgical Case</div>
-                <div id="hero-video" class="aspect-video bg-slate-800 rounded mb-4 overflow-hidden relative group cursor-pointer">
-                    <div class="absolute inset-0 flex items-center justify-center bg-black/40 group-hover:bg-black/20 transition">
-                        <div class="w-16 h-16 border-2 border-white rounded-full flex items-center justify-center ml-2">▶</div>
-                    </div>
+            <div class="grid grid-cols-2 gap-4">
+                <div class="bg-white/5 backdrop-blur-md p-8 border border-white/10">
+                    <div class="text-gold text-4xl font-bold mb-2 academic-serif italic">50+</div>
+                    <div class="text-[9px] uppercase tracking-widest opacity-60 font-bold">International Faculty</div>
                 </div>
-                <h4 class="text-xl font-semibold mb-2">Complex Revision Eyelid Surgery</h4>
-                <p class="text-sm text-blue-200 opacity-80">Expert demonstration of muscle reconstruction and skin grafting techniques.</p>
+                <div class="bg-white/5 backdrop-blur-md p-8 border border-white/10">
+                    <div class="text-gold text-4xl font-bold mb-2 academic-serif italic">150+</div>
+                    <div class="text-[9px] uppercase tracking-widest opacity-60 font-bold">Surgical Case Studies</div>
+                </div>
             </div>
         </div>
     </header>
 
     <section class="max-w-7xl mx-auto px-6 py-24">
-        <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
-            <div class="max-w-xl">
-                <h3 class="academic-font text-4xl text-slate-900 mb-4">Surgical Video Library</h3>
-                <div class="h-1 w-20 bg-gold-accent mb-4"></div>
-                <p class="text-slate-500 italic">Peer-reviewed clinical procedures for advanced specialized training.</p>
+        <div class="flex justify-between items-baseline border-b border-slate-100 pb-8 mb-16">
+            <div>
+                <h3 class="academic-serif text-4xl text-navy italic">Surgical Video Library</h3>
+                <p class="text-[11px] text-slate-400 uppercase tracking-widest font-bold mt-2">Peer-Reviewed Revision Techniques</p>
             </div>
-            <div class="flex space-x-4 text-xs font-bold">
-                <button class="text-gold border border-gold-accent px-4 py-2 hover:bg-gold-accent hover:text-white transition">UPPER EYELID</button>
-                <button class="text-slate-400 border border-slate-200 px-4 py-2 hover:border-gold-accent hover:text-gold transition">CANTHAL</button>
-                <button class="text-slate-400 border border-slate-200 px-4 py-2 hover:border-gold-accent hover:text-gold transition">REVISION</button>
-            </div>
+            <a href="#" class="text-[10px] font-bold text-gold tracking-[0.2em] hover:underline uppercase">Access Full Library →</a>
         </div>
 
-        <div id="video-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-            <div class="bg-white p-6 shadow-sm border-b-4 border-slate-200 animate-pulse">
-                <div class="bg-slate-200 aspect-video mb-4"></div>
-                <div class="h-4 bg-slate-200 w-3/4 mb-2"></div>
-                <div class="h-4 bg-slate-200 w-1/2"></div>
+        <div id="video-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16">
+            <div class="animate-pulse">
+                <div class="aspect-video bg-slate-100 mb-6"></div>
+                <div class="h-4 bg-slate-100 w-3/4 mb-3"></div>
+                <div class="h-3 bg-slate-100 w-1/2"></div>
             </div>
         </div>
     </section>
 
-    <footer class="bg-slate-900 text-slate-400 py-16">
-        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12 border-b border-slate-800 pb-12">
-            <div class="col-span-1 md:col-span-2">
-                <div class="academic-font text-2xl text-white mb-6">AOA <span class="text-gold">INSTITUTE</span></div>
-                <p class="text-sm leading-relaxed max-w-sm mb-6">亞洲眼整形醫師聯盟培訓機構是領先的國際平台，致力於眼部修復手術的卓越技術與倫理規範。</p>
-                <div class="text-xs uppercase tracking-widest text-slate-500">Contact: academic@aoa-institute.com</div>
+    <footer class="bg-[#050B16] text-white pt-24 pb-12">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-4 gap-20 mb-20">
+                <div class="col-span-1 lg:col-span-2">
+                    <h5 class="academic-serif text-3xl mb-8 text-white">AOA <span class="text-gold italic">INSTITUTE</span></h5>
+                    <p class="text-slate-500 text-xs leading-loose max-w-sm mb-8">
+                        The Asian Oculoplastic Academy is a non-profit academic federation setting global standards for specialized ophthalmic plastic and reconstructive surgery education.
+                    </p>
+                    <div class="bg-white/5 border-l-2 border-gold p-6">
+                        <p class="text-[10px] text-slate-400 italic leading-relaxed">
+                            <strong class="text-white not-italic tracking-widest uppercase block mb-2">Legal Disclaimer</strong>
+                            All content provided is for professional educational purposes only. It does not constitute medical advice or a formal surgeon-patient relationship. Surgical outcomes vary; clinical judgment must be applied to individual patient needs.
+                        </p>
+                    </div>
+                </div>
+                
+                <div>
+                    <h6 class="text-[10px] font-bold tracking-[0.3em] uppercase text-gold mb-8">Governance & Compliance</h6>
+                    <ul class="text-slate-500 text-xs space-y-4 font-semibold uppercase tracking-tighter">
+                        <li><a href="#" class="hover:text-white transition">Medical Disclaimer (13)</a></li>
+                        <li><a href="#" class="hover:text-white transition">Privacy Policy (13)</a></li>
+                        <li><a href="#" class="hover:text-white transition">Copyright & IP (13)</a></li>
+                        <li><a href="#" class="hover:text-white transition">Ethics Committee (3)</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h6 class="text-[10px] font-bold tracking-[0.3em] uppercase text-gold mb-8">Connect</h6>
+                    <ul class="text-slate-500 text-xs space-y-4 font-semibold uppercase tracking-tighter">
+                        <li><a href="#" class="hover:text-white transition">Academic Inquiry (14)</a></li>
+                        <li><a href="#" class="hover:text-white transition">Expert Collaboration (11)</a></li>
+                        <li><a href="#" class="hover:text-white transition">Faculty Login (12)</a></li>
+                    </ul>
+                </div>
             </div>
-            <div>
-                <h5 class="text-white font-bold mb-6 uppercase text-xs tracking-widest underline decoration-gold-accent underline-offset-8">Compliance</h5>
-                <ul class="text-sm space-y-4">
-                    <li><a href="#" class="hover:text-gold transition">Medical Disclaimer (13)</a></li>
-                    <li><a href="#" class="hover:text-gold transition">Privacy Policy (13)</a></li>
-                    <li><a href="#" class="hover:text-gold transition">User Agreement (13)</a></li>
-                </ul>
+
+            <div class="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center text-[9px] text-slate-600 font-bold tracking-[0.2em]">
+                <div>© 2026 ASIAN OCULOPLASTIC ACADEMY. REGISTERED EDUCATIONAL BODY.</div>
+                <div class="flex space-x-6">
+                    <span class="hover:text-white cursor-pointer">HIPAA READY</span>
+                    <span class="hover:text-white cursor-pointer">GDPR COMPLIANT</span>
+                    <span class="hover:text-white cursor-pointer">ISO 27001</span>
+                </div>
             </div>
-            <div>
-                <h5 class="text-white font-bold mb-6 uppercase text-xs tracking-widest underline decoration-gold-accent underline-offset-8">Quick Links</h5>
-                <ul class="text-sm space-y-4">
-                    <li><a href="#" class="hover:text-gold transition">Conference Archive (8)</a></li>
-                    <li><a href="#" class="hover:text-gold transition">Certification (10)</a></li>
-                    <li><a href="#" class="hover:text-gold transition">Expert Collaboration (11)</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="max-w-7xl mx-auto px-6 pt-8 text-[10px] flex justify-between uppercase tracking-widest">
-            <span>© 2026 Asian Oculoplastic Academy. All Rights Reserved.</span>
-            <span class="text-gold">Empowering Excellence in Oculoplasty</span>
         </div>
     </footer>
 
     <script>
-        // 與您 Project ID: ca00mh7m 的對接代碼會放在這裡
-        console.log("AOA Platform Engine Initialized...");
+        const PROJECT_ID = 'ca00mh7m';
+        const QUERY = encodeURIComponent('*[_type == "surgicalVideo"] | order(_createdAt desc)');
+        const URL = `https://${PROJECT_ID}.api.sanity.io/v2021-10-21/data/query/production?query=${QUERY}`;
+
+        fetch(URL)
+            .then(res => res.json())
+            .then(({result}) => {
+                const grid = document.getElementById('video-grid');
+                grid.innerHTML = result.map(video => `
+                    <div class="group cursor-pointer">
+                        <div class="aspect-video bg-slate-100 mb-6 relative overflow-hidden">
+                            <img src="https://img.youtube.com/vi/${video.youtubeId}/maxresdefault.jpg" class="object-cover w-full h-full opacity-80 group-hover:opacity-100 transition duration-500">
+                            <div class="absolute inset-0 flex items-center justify-center bg-navy/20 group-hover:bg-transparent transition duration-500">
+                                <div class="w-12 h-12 border border-white rounded-full flex items-center justify-center text-white">▶</div>
+                            </div>
+                        </div>
+                        <h4 class="text-lg font-bold text-navy mb-2 group-hover:text-gold transition academic-serif italic">${video.title}</h4>
+                        <p class="text-[10px] text-slate-400 font-bold tracking-widest uppercase">Video Case Study | Member Access</p>
+                    </div>
+                `).join('');
+            });
     </script>
 </body>
 </html>
