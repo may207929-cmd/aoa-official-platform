@@ -1,75 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AOA Institute | Oculoplastic Surgery Education</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        .academic-blue { background-color: #003366; } /* 國際學術藍 */
-        .gold-accent { color: #C5A059; } /* 金色標記 */
-    </style>
-</head>
-<body class="bg-gray-50 text-gray-900">
-
-    <nav class="academic-blue p-4 text-white shadow-lg">
-        <div class="container mx-auto flex justify-between items-center">
-            <h1 class="text-2xl font-bold tracking-tight">AOA INSTITUTE</h1>
-            <div class="space-x-6">
-                <a href="#" class="hover:text-gray-300">Videos</a>
-                <a href="#" class="hover:text-gray-300">Papers</a>
-                <a href="#" class="hover:text-gray-300">Live Course</a>
-                <button class="bg-white text-blue-900 px-4 py-1 rounded font-semibold">Sign In</button>
-            </div>
+<nav class="bg-slate-900 text-white sticky top-0 z-50">
+  <div class="max-w-7xl mx-auto px-4 flex justify-between items-center h-16">
+    <div class="text-xl font-bold tracking-wider text-blue-400">
+      AOA <span class="text-white text-sm font-light">INSTITUTE</span>
+    </div>
+    
+    <div class="hidden md:flex space-x-6 text-sm uppercase">
+      <a href="#home" class="hover:text-blue-400 transition">Home</a>
+      <div class="relative group">
+        <button class="hover:text-blue-400">Education ▾</button>
+        <div class="absolute hidden group-hover:block bg-white text-slate-800 p-4 w-48 shadow-xl rounded-b-lg">
+          <a href="/programs" class="block py-2 hover:text-blue-600 border-b">Programs</a>
+          <a href="/videos" class="block py-2 hover:text-blue-600 border-b">Video Library</a>
+          <a href="/certification" class="block py-2 hover:text-blue-600">Certification</a>
         </div>
-    </nav>
+      </div>
+      <a href="#faculty" class="hover:text-blue-400">Faculty</a>
+      <a href="#membership" class="hover:text-blue-400 border-l pl-6 border-slate-700">Membership</a>
+    </div>
 
-    <header class="py-20 bg-white border-b">
-        <div class="container mx-auto px-4 text-center">
-            <h2 class="text-4xl font-serif mb-4">International Center for Oculoplastic Reconstruction</h2>
-            <p class="text-xl text-gray-600 max-w-2xl mx-auto">Focusing on advanced reparative techniques from leading Chinese oculoplastic specialists.</p>
-        </div>
-    </header>
-
-    <section class="container mx-auto py-12 px-4">
-        <h3 class="text-2xl font-bold mb-8 border-l-4 border-blue-900 pl-4">Premium Surgical Videos</h3>
-        <div id="video-grid" class="grid md:grid-cols-3 gap-8">
-            <div class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200">
-                <div class="bg-gray-300 h-48 flex items-center justify-center">
-                    <span class="text-gray-500 italic text-sm">Clinical Footage Preview</span>
-                </div>
-                <div class="p-6">
-                    <h4 class="font-bold text-lg video-title">Loading Advanced Cases...</h4>
-                    <p class="text-sm text-gray-500 mt-2">Expert: Chinese Reconstruction Team</p>
-                    <div class="mt-4 flex justify-between items-center">
-                        <span class="text-blue-900 font-bold video-price">$499.00</span>
-                        <a href="#" class="video-link bg-blue-900 text-white px-4 py-2 rounded text-sm hover:bg-blue-800">Watch Now</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <script>
-        const PROJECT_ID = 'ca00mh7m'; // 您的專案 ID
-        const DATASET = 'production';   // 您的數據集
-        
-        async function loadContent() {
-            const query = encodeURIComponent('*[_type == "surgicalVideo"]{title, youtubeId, price}');
-            const url = `https://${PROJECT_ID}.api.sanity.io/v2021-10-21/data/query/${DATASET}?query=${query}`;
-            
-            try {
-                const response = await fetch(url);
-                const result = await response.json();
-                if (result.result && result.result.length > 0) {
-                    const data = result.result[0];
-                    document.querySelector('.video-title').innerText = data.title;
-                    document.querySelector('.video-price').innerText = `$${data.price}`;
-                    document.querySelector('.video-link').href = `https://www.youtube.com/watch?v=${data.youtubeId}`;
-                }
-            } catch (e) { console.log('Data link pending...'); }
-        }
-        loadContent();
-    </script>
-</body>
-</html>
+    <div class="flex items-center space-x-4">
+      <select class="bg-slate-800 text-xs border-none rounded px-2 py-1">
+        <option>English</option>
+        <option>中文 (繁體)</option>
+        <option>日本語</option>
+      </select>
+      <a href="/login" class="bg-blue-600 px-4 py-2 rounded-full text-xs font-bold hover:bg-blue-700">LOGIN</a>
+    </div>
+  </div>
+</nav>
