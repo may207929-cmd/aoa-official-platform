@@ -1,75 +1,275 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hant">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AOA Institute | Oculoplastic Surgery Education</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        .academic-blue { background-color: #003366; } /* 國際學術藍 */
-        .gold-accent { color: #C5A059; } /* 金色標記 */
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>亞洲眼整形醫師聯盟培訓機構 | AOA Institute</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;500;600;700&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/styles.css" />
 </head>
-<body class="bg-gray-50 text-gray-900">
-
-    <nav class="academic-blue p-4 text-white shadow-lg">
-        <div class="container mx-auto flex justify-between items-center">
-            <h1 class="text-2xl font-bold tracking-tight">AOA INSTITUTE</h1>
-            <div class="space-x-6">
-                <a href="#" class="hover:text-gray-300">Videos</a>
-                <a href="#" class="hover:text-gray-300">Papers</a>
-                <a href="#" class="hover:text-gray-300">Live Course</a>
-                <button class="bg-white text-blue-900 px-4 py-1 rounded font-semibold">Sign In</button>
+<body>
+  <header class="hero" id="home">
+    <div class="topbar"><div class="container"><div>AOA Institute | International Academic Education</div><div>CME · Ethics · Credentialing Verified</div></div></div>
+    <div class="container">
+      <nav class="navbar">
+        <div class="navbar-inner">
+          <div class="brand">
+            <div class="brand-mark">AOA</div>
+            <div>
+              <div style="font-size:11px; letter-spacing:0.32em; color:#6b7280; text-transform:uppercase;">International Medical Education</div>
+              <div style="font-size:18px; font-weight:600; color:var(--navy);">亞洲眼整形醫師聯盟培訓機構</div>
             </div>
-        </div>
-    </nav>
-
-    <header class="py-20 bg-white border-b">
-        <div class="container mx-auto px-4 text-center">
-            <h2 class="text-4xl font-serif mb-4">International Center for Oculoplastic Reconstruction</h2>
-            <p class="text-xl text-gray-600 max-w-2xl mx-auto">Focusing on advanced reparative techniques from leading Chinese oculoplastic specialists.</p>
-        </div>
-    </header>
-
-    <section class="container mx-auto py-12 px-4">
-        <h3 class="text-2xl font-bold mb-8 border-l-4 border-blue-900 pl-4">Premium Surgical Videos</h3>
-        <div id="video-grid" class="grid md:grid-cols-3 gap-8">
-            <div class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200">
-                <div class="bg-gray-300 h-48 flex items-center justify-center">
-                    <span class="text-gray-500 italic text-sm">Clinical Footage Preview</span>
-                </div>
-                <div class="p-6">
-                    <h4 class="font-bold text-lg video-title">Loading Advanced Cases...</h4>
-                    <p class="text-sm text-gray-500 mt-2">Expert: Chinese Reconstruction Team</p>
-                    <div class="mt-4 flex justify-between items-center">
-                        <span class="text-blue-900 font-bold video-price">$499.00</span>
-                        <a href="#" class="video-link bg-blue-900 text-white px-4 py-2 rounded text-sm hover:bg-blue-800">Watch Now</a>
-                    </div>
-                </div>
+          </div>
+          <div class="nav-links">
+            <a href="index.html">首頁</a>
+            <a href="about.html">關於我們</a>
+            <a href="faculty.html">講師團隊</a>
+            <a href="programs.html">培訓課程</a>
+            <a href="research.html">研究論文</a>
+            <a href="membership.html">會員制度</a>
+          </div>
+          <div class="nav-actions">
+            <div class="language-tabs">
+              <a class="active" href="index.html">繁中</a>
+              <a href="lang/en/index.html">EN</a>
+              <a href="lang/ja/index.html">JP</a>
+              <a href="lang/ko/index.html">KR</a>
+              <a href="lang/fr/index.html">FR</a>
+              <a href="lang/de/index.html">DE</a>
+              <a href="lang/es/index.html">ES</a>
             </div>
+            <button class="button">登入</button>
+            <button class="button primary">申請會員</button>
+          </div>
         </div>
-    </section>
+      </nav>
+      <div class="subnav">
+        <div class="container">
+          <a href="programs.html">課程</a>
+          <a href="research.html">研究</a>
+          <a href="conferences.html">會議</a>
+          <a href="certification.html">認證</a>
+          <a href="compliance.html">合規</a>
+          <a href="contact.html">聯絡</a>
+        </div>
+      </div>
+<div class="centered-hero">
+        <div class="hero-tag">世界一流的眼部整形教育</div>
+        <h1 class="hero-title">掌握眼部整形手術的藝術</h1>
+        <p>
+          加入亞洲眼整形外科醫師聯盟，與數千名國際醫師一同透過全面的課程、高品質手術影片與專家指導提升外科手術技能。
+        </p>
+        <div style="display:flex; gap:12px; flex-wrap:wrap; justify-content:center; margin-top:20px;">
+          <button class="button primary">探索課程 →</button>
+          <button class="button">觀看手術影片</button>
+        </div>
+      </div>
+    </div>
+  </header>
 
-    <script>
-        const PROJECT_ID = 'ca00mh7m'; // 您的專案 ID
-        const DATASET = 'production';   // 您的數據集
-        
-        async function loadContent() {
-            const query = encodeURIComponent('*[_type == "surgicalVideo"]{title, youtubeId, price}');
-            const url = `https://${PROJECT_ID}.api.sanity.io/v2021-10-21/data/query/${DATASET}?query=${query}`;
-            
-            try {
-                const response = await fetch(url);
-                const result = await response.json();
-                if (result.result && result.result.length > 0) {
-                    const data = result.result[0];
-                    document.querySelector('.video-title').innerText = data.title;
-                    document.querySelector('.video-price').innerText = `$${data.price}`;
-                    document.querySelector('.video-link').href = `https://www.youtube.com/watch?v=${data.youtubeId}`;
-                }
-            } catch (e) { console.log('Data link pending...'); }
-        }
-        loadContent();
-    </script>
+  <section class="stats-band">
+    <div class="container">
+      <div class="stats-grid">
+        <div><strong>500+</strong><div>手術影片</div></div>
+        <div><strong>2000+</strong><div>註冊會員</div></div>
+        <div><strong>50歲以上</strong><div>臨床專家</div></div>
+        <div><strong>15年以上</strong><div>國際教學經驗</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="about">
+    <div class="container">
+      <div class="section-header" style="justify-content:center;">
+        <div>
+          <div class="eyebrow" style="text-align:center;">Mission & Vision</div>
+          <h2 class="section-title" style="text-align:center;">使命與願景</h2>
+          <p style="text-align:center; max-width:640px; margin:0 auto;">
+            亞洲眼部整形外科醫師聯盟致力於透過世界級的教育、研究合作和專業發展，提升眼部整形和重建外科的卓越水準。
+          </p>
+        </div>
+      </div>
+      <div class="mission-grid">
+        <div class="mission-card">
+          <div class="eyebrow">我們的使命</div>
+          <p>為亞洲及國際外科醫師提供全面、實證的眼科整形外科培訓與教育，促進患者照護與外科創新。</p>
+        </div>
+        <div class="mission-card">
+          <div class="eyebrow">我們的願景</div>
+          <p>成為領先的國際眼整形外科教育平台，連結全球外科醫師，推動合作與持續學習。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt" id="programs">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <div class="eyebrow">Integrated Learning</div>
+          <h2 class="section-title">綜合學習平台</h2>
+        </div>
+      </div>
+      <div class="grid-3">
+        <div class="card">
+          <div class="eyebrow">課程</div>
+          <h3>分級課程體系</h3>
+          <p>基礎到專家級培訓，結合修復專項路徑。</p>
+        </div>
+        <div class="card">
+          <div class="eyebrow">手術影片</div>
+          <h3>高解析度示範</h3>
+          <p>上瞼、下瞼、眼角、眶部與修復案例。</p>
+        </div>
+        <div class="card">
+          <div class="eyebrow">專家指導</div>
+          <h3>直播與圓桌</h3>
+          <p>定期專家會議與手術觀摩直播。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="faculty">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <div class="eyebrow">Featured Faculty</div>
+          <h2 class="section-title">特邀教師</h2>
+        </div>
+        <a class="button" href="faculty.html">查看所有教師 →</a>
+      </div>
+      <div class="profile-grid">
+        <div class="profile-card">
+          <img src="assets/pan-er.jpg" alt="潘貳博士" />
+          <div>
+            <span class="badge">核心講師</span>
+            <h3 style="margin-top:12px;">潘貳 博士</h3>
+            <p>副主任醫師｜南方醫科大學整形外科學博士</p>
+            <p style="color:#64748b;">廣州研婵荟醫療美容門診部</p>
+            <div style="margin-top:14px;">
+              <a class="button" href="faculty-pan-er.html">查看個人資料</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section sky" id="membership">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <div class="eyebrow">Membership Plans</div>
+          <h2 class="section-title">會員計劃</h2>
+        </div>
+      </div>
+      <div class="grid-3">
+        <div class="card">
+          <div class="eyebrow">準會員</div>
+          <h3>免費</h3>
+          <div class="list">
+            <div>基礎課程存取</div>
+            <div>社群論壇</div>
+            <div>每月網路研討會</div>
+          </div>
+        </div>
+        <div class="card" style="border:2px solid var(--navy); box-shadow:0 16px 34px rgba(11,27,58,0.2);">
+          <div class="eyebrow">認證會員（最受歡迎）</div>
+          <h3>每月 99 美元</h3>
+          <div class="list">
+            <div>所有基本功能</div>
+            <div>完整影片庫</div>
+            <div>高級課程</div>
+            <div>繼續醫學教育認證</div>
+            <div>優先支援</div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="eyebrow">高級外科醫生</div>
+          <h3>每月 199 美元</h3>
+          <div class="list">
+            <div>所有認證功能</div>
+            <div>手術現場觀察</div>
+            <div>一對一指導</div>
+            <div>獨家研究資源</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="cta-strip">
+        <h2 class="section-title" style="color:white; margin-bottom:8px;">準備好提升你的技能了嗎？</h2>
+        <p style="color:#e0e7ff; margin-bottom:18px;">加入亞洲眼部整形外科醫師聯盟，即可獲得專家教授提供的世界級培訓。</p>
+        <button class="button">立即開始 →</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="container">
+      <div class="section-header" style="justify-content:center;">
+        <div>
+          <div class="eyebrow" style="text-align:center;">Compliance & Ethics</div>
+          <h2 class="section-title" style="text-align:center;">合規、倫理與法律聲明</h2>
+          <p style="text-align:center; max-width:760px; margin:0 auto;">
+            所有內容僅供學術教育使用，不替代臨床判斷或當地法規要求。會員需通過醫師資格審核並遵守患者隱私、資料保護與版權規範。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer" style="background:#0b1b3a; color:#cbd5f5;">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-title">平台</div>
+          <a class="footer-link" href="programs.html">課程</a>
+          <a class="footer-link" href="research.html">研究</a>
+          <a class="footer-link" href="conferences.html">會議</a>
+          <a class="footer-link" href="live.html">直播</a>
+        </div>
+        <div>
+          <div class="footer-title">組織</div>
+          <a class="footer-link" href="about.html">關於我們</a>
+          <a class="footer-link" href="committee.html">學術委員會</a>
+          <a class="footer-link" href="faculty.html">講師團隊</a>
+          <a class="footer-link" href="collaboration.html">合作關係</a>
+        </div>
+        <div>
+          <div class="footer-title">支持</div>
+          <a class="footer-link" href="contact.html">聯絡我們</a>
+          <a class="footer-link" href="member.html">會員中心</a>
+          <a class="footer-link" href="membership.html">會員方案</a>
+          <a class="footer-link" href="certification.html">認證學分</a>
+        </div>
+        <div>
+          <div class="footer-title">合法的</div>
+          <a class="footer-link" href="compliance.html">隱私權政策</a>
+          <a class="footer-link" href="compliance.html">使用條款</a>
+          <a class="footer-link" href="compliance.html">免責聲明</a>
+        </div>
+      </div>
+      <div style="display:flex; flex-wrap:wrap; justify-content:space-between; gap:12px; margin-top:18px;">
+        <div>© <span data-year></span> 亞洲眼部整形外科醫師聯盟 · 版權所有。</div>
+        <div class="language-switch">
+          <a href="lang/en/index.html">English</a>
+          <a href="lang/ja/index.html">日本語</a>
+          <a href="lang/ko/index.html">한국어</a>
+          <a href="lang/fr/index.html">Français</a>
+          <a href="lang/de/index.html">Deutsch</a>
+          <a href="lang/es/index.html">Español</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/site.js"></script>
 </body>
 </html>
