@@ -5,7 +5,7 @@
   <xsl:template match="/">
     <html>
       <head>
-        <title>AOA Institute Sitemap</title>
+        <title>亞洲眼整形醫師聯盟培訓機構網站地圖</title>
         <style>
           body { font-family: Arial, sans-serif; padding: 24px; background: #f5f7fa; color: #0b1b3a; }
           h1 { font-size: 22px; }
@@ -17,12 +17,12 @@
         </style>
       </head>
       <body>
-        <h1>AOA Institute Sitemap</h1>
-        <div class="note">This is an XML sitemap for search engines; the table below is a human‑readable view.</div>
+        <h1>亞洲眼整形醫師聯盟培訓機構網站地圖</h1>
+        <div class="note">這是一個提供搜尋引擎使用的 XML 網站地圖；下表為人類可讀的視圖。</div>
         <table>
           <thead>
             <tr>
-              <th>URL</th>
+              <th>網址</th>
             </tr>
           </thead>
           <tbody>
