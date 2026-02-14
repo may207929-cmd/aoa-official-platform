@@ -1,48 +1,163 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-Hant">
 <head>
-    <meta charset="UTF-8">
-    <title>AOA 管理後台</title>
-    <style>
-        body { font-family: sans-serif; padding: 40px; background: #f0f2f5; }
-        .card { background: white; padding: 30px; border-radius: 12px; max-width: 500px; margin: auto; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
-        input { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
-        button { width: 100%; background: #003366; color: white; padding: 12px; border: none; border-radius: 4px; cursor: pointer; font-weight: bold; }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AOA 後台編輯桌面</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/admin.css" />
 </head>
 <body>
-    <div class="card">
-        <h2>AOA 內容發布中心</h2>
-        <input id="title" type="text" placeholder="手術影片標題">
-        <input id="ytId" type="text" placeholder="YouTube ID (如: dQw4w9WgXcQ)">
-        <button onclick="publish()">同步至全球官網</button>
-    </div>
+  <div class="admin-shell">
+    <aside class="sidebar">
+      <div class="brand-block">
+        <div class="brand-mark">AOA</div>
+        <div>
+          <div class="brand-title">內容後台</div>
+          <div class="brand-subtitle">編輯桌面</div>
+        </div>
+      </div>
 
-    <script>
-        async function publish() {
-            // 請確保這裡填入您截圖中的 sk1b... Token
-            const TOKEN = '在此貼上您的TOKEN'; 
-            const PROJECT_ID = 'ca00mh7m';
+      <section class="auth-box">
+        <div class="auth-title">管理員登入</div>
+        <div class="auth-status" id="authStatus">尚未登入</div>
 
-            const data = {
-                mutations: [{
-                    create: {
-                        _type: 'surgicalVideo',
-                        title: document.getElementById('title').value,
-                        youtubeId: document.getElementById('ytId').value,
-                        price: 499
-                    }
-                }]
-            };
+        <form id="loginForm" class="auth-form" autocomplete="off">
+          <label>電子郵件
+            <input type="email" id="emailInput" required />
+          </label>
+          <label>密碼
+            <input type="password" id="passwordInput" required />
+          </label>
+          <button class="btn primary" type="submit">密碼登入</button>
+        </form>
 
-            const resp = await fetch(`https://${PROJECT_ID}.api.sanity.io/v2021-10-21/data/mutate/production`, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${TOKEN}` },
-                body: JSON.stringify(data)
-            });
+        <button class="btn hidden" id="logoutBtn" type="button">登出</button>
+      </section>
 
-            if (resp.ok) alert('發布成功！'); else alert('失敗，請檢查 Token');
-        }
-    </script>
+      <nav class="module-nav" aria-label="編輯模組">
+        <button class="module-link active" data-target="site">網站基本</button>
+        <button class="module-link" data-target="hero">首頁首屏</button>
+        <button class="module-link" data-target="stats">信任數據</button>
+        <button class="module-link" data-target="events">活動公告</button>
+        <button class="module-link" data-target="faculty">講師資訊</button>
+      </nav>
+
+      <div class="side-actions">
+        <button class="btn" id="loadRemoteBtn">載入雲端草稿</button>
+        <button class="btn" id="saveRemoteDraftBtn">儲存草稿到雲端</button>
+        <button class="btn primary" id="publishBtn">發布到網站</button>
+      </div>
+
+      <section class="cloud-box">
+        <div class="cloud-title">版本控制</div>
+        <div class="cloud-meta" id="remoteMeta">尚未讀取雲端狀態</div>
+        <select id="revisionSelect"></select>
+        <button class="btn" id="rollbackBtn" type="button">回滾到選取版本並發布</button>
+        <button class="btn" id="refreshHistoryBtn" type="button">刷新版本列表</button>
+      </section>
+
+      <div class="side-actions">
+        <button class="btn" id="saveDraftBtn">儲存本地草稿</button>
+        <button class="btn" id="resetBtn">重設內容</button>
+        <button class="btn" id="exportBtn">匯出 JSON</button>
+        <label class="btn file-btn">
+          匯入 JSON
+          <input type="file" id="importInput" accept="application/json" />
+        </label>
+      </div>
+
+      <div class="side-note" id="statusMessage" aria-live="polite">初始化中...</div>
+    </aside>
+
+    <main class="workspace">
+      <header class="workspace-header">
+        <div>
+          <h1>後台編輯桌面</h1>
+          <p>流程：編輯 -> 儲存雲端草稿 -> 發布 -> 可回滾版本。</p>
+        </div>
+      </header>
+
+      <div class="workspace-grid">
+        <section class="editor-pane">
+          <div class="lock-overlay" id="lockOverlay">請先以管理員身分登入</div>
+          <form id="editorForm" autocomplete="off">
+            <section class="editor-section" data-section="site">
+              <h2>網站基本</h2>
+              <div class="field-grid">
+                <label>機構名稱
+                  <input type="text" name="site.name" />
+                </label>
+                <label>機構副標
+                  <input type="text" name="site.tagline" />
+                </label>
+                <label class="full">頂部說明
+                  <input type="text" name="site.topline" />
+                </label>
+              </div>
+            </section>
+
+            <section class="editor-section hidden" data-section="hero">
+              <h2>首頁首屏</h2>
+              <div class="field-grid">
+                <label class="full">標籤
+                  <input type="text" name="hero.label" />
+                </label>
+                <label class="full">主標題
+                  <input type="text" name="hero.title" />
+                </label>
+                <label class="full">描述
+                  <textarea rows="3" name="hero.description"></textarea>
+                </label>
+                <label>主按鈕文字
+                  <input type="text" name="hero.primaryCta" />
+                </label>
+                <label>次按鈕文字
+                  <input type="text" name="hero.secondaryCta" />
+                </label>
+              </div>
+            </section>
+
+            <section class="editor-section hidden" data-section="stats">
+              <h2>信任數據</h2>
+              <div class="stats-editor" id="statsEditor"></div>
+            </section>
+
+            <section class="editor-section hidden" data-section="events">
+              <h2>活動公告</h2>
+              <div class="events-editor" id="eventsEditor"></div>
+            </section>
+
+            <section class="editor-section hidden" data-section="faculty">
+              <h2>講師資訊</h2>
+              <div class="field-grid">
+                <label>講師姓名
+                  <input type="text" name="faculty.name" />
+                </label>
+                <label>講師角色
+                  <input type="text" name="faculty.role" />
+                </label>
+                <label class="full">學歷/職稱
+                  <input type="text" name="faculty.credential" />
+                </label>
+                <label class="full">機構
+                  <input type="text" name="faculty.org" />
+                </label>
+              </div>
+            </section>
+          </form>
+        </section>
+
+        <aside class="preview-pane">
+          <div class="preview-header">首頁預覽</div>
+          <div class="preview-canvas" id="previewCanvas"></div>
+        </aside>
+      </div>
+    </main>
+  </div>
+
+  <script src="assets/admin.js"></script>
 </body>
 </html>

@@ -9,12 +9,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;500;600;700&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/styles.css" />
 </head>
-<body>
+<body data-content-key="homepage">
   <header class="hero" id="home">
     <div class="topbar">
       <div class="container">
-        <div>亞洲眼整形醫師聯盟培訓機構</div>
-        <div>學術教育 · 醫師資格審核 · 合規管理</div>
+        <div data-content="site.name">亞洲眼整形醫師聯盟培訓機構</div>
+        <div data-content="site.topline">學術教育 · 醫師資格審核 · 合規管理</div>
       </div>
     </div>
     <div class="container">
@@ -23,8 +23,8 @@
           <div class="brand">
             <div class="brand-mark">眼盟</div>
             <div>
-              <div style="font-size:12px; letter-spacing:0.12em; color:#6b7280;">國際眼整形醫學教育平台</div>
-              <div style="font-size:18px; font-weight:600; color:var(--navy);">亞洲眼整形醫師聯盟培訓機構</div>
+              <div style="font-size:12px; letter-spacing:0.12em; color:#6b7280;" data-content="site.tagline">國際眼整形醫學教育平台</div>
+              <div style="font-size:18px; font-weight:600; color:var(--navy);" data-content="site.name">亞洲眼整形醫師聯盟培訓機構</div>
             </div>
           </div>
           <div class="nav-links">
@@ -43,14 +43,14 @@
       </nav>
 
       <div class="centered-hero">
-        <div class="hero-tag">國際級眼整形醫學教育平台</div>
-        <h1 class="hero-title">建立可信任的眼整形教育體系</h1>
-        <p>
+        <div class="hero-tag" data-content="hero.label">國際級眼整形醫學教育平台</div>
+        <h1 class="hero-title" data-content="hero.title">建立可信任的眼整形教育體系</h1>
+        <p data-content="hero.description">
           面向全球整形外科與眼科醫師，提供修復手術培訓、臨床策略與標準化教學。
         </p>
         <div style="display:flex; gap:12px; flex-wrap:wrap; justify-content:center; margin-top:20px;">
-          <a class="button primary" href="programs.html">查看課程</a>
-          <a class="button" href="membership.html">會員申請</a>
+          <a class="button primary" href="programs.html" data-content="hero.primaryCta">查看課程</a>
+          <a class="button" href="membership.html" data-content="hero.secondaryCta">會員申請</a>
         </div>
       </div>
     </div>
@@ -59,10 +59,10 @@
   <section class="stats-band">
     <div class="container">
       <div class="stats-grid">
-        <div><strong>500+</strong><div>手術影片</div></div>
-        <div><strong>2000+</strong><div>註冊會員</div></div>
-        <div><strong>50歲以上</strong><div>臨床專家</div></div>
-        <div><strong>15年以上</strong><div>國際教學經驗</div></div>
+        <div><strong data-content="stats.0.value">500+</strong><div data-content="stats.0.label">手術影片</div></div>
+        <div><strong data-content="stats.1.value">2000+</strong><div data-content="stats.1.label">註冊會員</div></div>
+        <div><strong data-content="stats.2.value">50歲以上</strong><div data-content="stats.2.label">臨床專家</div></div>
+        <div><strong data-content="stats.3.value">15年以上</strong><div data-content="stats.3.label">國際教學經驗</div></div>
       </div>
     </div>
   </section>
@@ -76,9 +76,9 @@
         </div>
       </div>
       <div class="list-block">
-        <div class="list-item">2026 / 03 / 15 <span>眼整形修復策略研討會（線上）</span></div>
-        <div class="list-item">2026 / 04 / 10 <span>高難度併發症處理專題</span></div>
-        <div class="list-item">2026 / 05 / 05 <span>國際專家手術觀摩直播</span></div>
+        <div class="list-item"><strong data-content="events.0.date">2026 / 03 / 15</strong><span data-content="events.0.title">眼整形修復策略研討會（線上）</span></div>
+        <div class="list-item"><strong data-content="events.1.date">2026 / 04 / 10</strong><span data-content="events.1.title">高難度併發症處理專題</span></div>
+        <div class="list-item"><strong data-content="events.2.date">2026 / 05 / 05</strong><span data-content="events.2.title">國際專家手術觀摩直播</span></div>
       </div>
     </div>
   </section>
@@ -124,10 +124,10 @@
         <div class="profile-card">
           <img src="assets/pan-er.jpg" alt="潘貳博士" />
           <div>
-            <span class="badge">核心講師</span>
-            <h3 style="margin-top:12px;">潘貳 博士</h3>
-            <p>副主任醫師｜南方醫科大學整形外科學博士</p>
-            <p style="color:#64748b;">廣州研媄薈醫療美容門診部</p>
+            <span class="badge" data-content="faculty.role">核心講師</span>
+            <h3 style="margin-top:12px;" data-content="faculty.name">潘貳 博士</h3>
+            <p data-content="faculty.credential">副主任醫師｜南方醫科大學整形外科學博士</p>
+            <p style="color:#64748b;" data-content="faculty.org">廣州研媄薈醫療美容門診部</p>
             <div style="margin-top:14px;">
               <a class="button" href="faculty-pan-er.html">查看個人資料</a>
             </div>

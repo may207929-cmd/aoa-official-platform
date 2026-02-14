@@ -18,6 +18,35 @@
     document.head.appendChild(script);
   }
 
+  function getByPath(target, path) {
+    if (!target || !path) return undefined;
+    return path.split('.').reduce((acc, key) => (acc ? acc[key] : undefined), target);
+  }
+
+  function applyManagedTextContent(payload) {
+    document.querySelectorAll('[data-content]').forEach((node) => {
+      const key = node.getAttribute('data-content');
+      const value = getByPath(payload, key);
+      if (typeof value === 'string' || typeof value === 'number') {
+        node.textContent = String(value);
+      }
+    });
+  }
+
+  async function applyManagedContent(client) {
+    const key = document.body?.dataset?.contentKey;
+    if (!key) return;
+
+    const { data, error } = await client
+      .from('site_content_public')
+      .select('payload,published_revision,published_at')
+      .eq('key', key)
+      .maybeSingle();
+
+    if (error || !data?.payload) return;
+    applyManagedTextContent(data.payload);
+  }
+
   function createAuthModal() {
     if (document.getElementById('auth-modal')) return;
     const modal = document.createElement('div');
@@ -435,6 +464,8 @@
     const client = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
       auth: { persistSession: true, autoRefreshToken: true },
     });
+
+    await applyManagedContent(client);
 
     createAuthModal();
     ensureAuthButtons();
